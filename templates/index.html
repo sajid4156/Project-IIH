@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System</title>
+    <!-- Flowbite and Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f0f9ff;
+        }
+        .symptom-form {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-blue-800 mb-2">Disease Prediction System</h1>
+            <p class="text-gray-600">Please select your symptoms to get a disease prediction</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 symptom-form mx-auto">
+            <form id="symptomForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="col-span-1 md:col-span-2 mb-2">
+                    <h2 class="text-xl font-semibold text-blue-700">Symptom Information</h2>
+                    <p class="text-sm text-gray-500">Select Yes for symptoms you are experiencing</p>
+                </div>
+
+                <!-- Symptom Inputs -->
+                <div class="mb-4">
+                    <label for="worsensLyingDown" class="block mb-2 text-sm font-medium text-gray-900">Worsens Lying Down</label>
+                    <select id="worsensLyingDown" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="visualDisturbances" class="block mb-2 text-sm font-medium text-gray-900">Visual Disturbances</label>
+                    <select id="visualDisturbances" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="pulsatileTinnitus" class="block mb-2 text-sm font-medium text-gray-900">Pulsatile Tinnitus</label>
+                    <select id="pulsatileTinnitus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="nauseaVomiting" class="block mb-2 text-sm font-medium text-gray-900">Nausea & Vomiting</label>
+                    <select id="nauseaVomiting" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="seizures" class="block mb-2 text-sm font-medium text-gray-900">Seizures</label>
+                    <select id="seizures" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="nasalCongestion" class="block mb-2 text-sm font-medium text-gray-900">Nasal Congestion</label>
+                    <select id="nasalCongestion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="highBP" class="block mb-2 text-sm font-medium text-gray-900">High Blood Pressure</label>
+                    <select id="highBP" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="headacheUpright" class="block mb-2 text-sm font-medium text-gray-900">Headache Upright</label>
+                    <select id="headacheUpright" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="fatigue" class="block mb-2 text-sm font-medium text-gray-900">Fatigue</label>
+                    <select id="fatigue" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="photophobia" class="block mb-2 text-sm font-medium text-gray-900">Photophobia</label>
+                    <select id="photophobia" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="memoryIssues" class="block mb-2 text-sm font-medium text-gray-900">Memory Issues</label>
+                    <select id="memoryIssues" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="blackout" class="block mb-2 text-sm font-medium text-gray-900">Blackout</label>
+                    <select id="blackout" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="pcodPcos" class="block mb-2 text-sm font-medium text-gray-900">PCOD/PCOS (Females)</label>
+                    <select id="pcodPcos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="bmiOver25" class="block mb-2 text-sm font-medium text-gray-900">BMI > 25</label>
+                    <select id="bmiOver25" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="genderFemale" class="block mb-2 text-sm font-medium text-gray-900">Gender (Female)</label>
+                    <select id="genderFemale" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="genderMale" class="block mb-2 text-sm font-medium text-gray-900">Gender (Male)</label>
+                    <select id="genderMale" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="col-span-1 md:col-span-2 mt-4">
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center">
+                        Predict Disease
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Section (Initially Hidden) -->
+        <div id="resultSection" class="mt-8 bg-white rounded-lg shadow-lg p-6 symptom-form mx-auto hidden">
+            <div class="text-center">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4">Prediction Result</h2>
+                <div id="loadingIndicator" class="flex justify-center items-center hidden">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700"></div>
+                </div>
+                <div id="resultContent" class="mt-4">
+                    <div class="p-4 mb-4 text-lg rounded-lg bg-blue-50 border-blue-300 text-blue-800" role="alert">
+                        <div class="font-bold text-xl mb-2">Predicted Disease:</div>
+                        <div id="predictedDisease" class="font-medium text-2xl">-</div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">
+                        Note: This is only a preliminary assessment based on the symptoms provided. 
+                        Please consult with a healthcare professional for proper diagnosis and treatment.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <button id="resetButton" class="text-blue-700 hover:text-blue-800 font-medium text-sm">
+                    Check for another set of symptoms
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backend Integration Script -->
+    <script>
+        document.getElementById('symptomForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading and result section
+            document.getElementById('resultSection').classList.remove('hidden');
+            document.getElementById('loadingIndicator').classList.remove('hidden');
+            document.getElementById('resultContent').classList.add('hidden');
+            
+            // Ensure only one gender is selected
+            const genderFemale = document.getElementById('genderFemale');
+            const genderMale = document.getElementById('genderMale');
+            
+            if (genderFemale.value === "1" && genderMale.value === "1") {
+                alert("Please select only one gender option.");
+                document.getElementById('loadingIndicator').classList.add('hidden');
+                return;
+            }
+            
+            // Create data array in the order expected by the model
+            const formData = [
+                document.getElementById('worsensLyingDown').value,
+                document.getElementById('visualDisturbances').value,
+                document.getElementById('pulsatileTinnitus').value,
+                document.getElementById('nauseaVomiting').value,
+                document.getElementById('seizures').value,
+                document.getElementById('nasalCongestion').value,
+                document.getElementById('highBP').value,
+                document.getElementById('headacheUpright').value,
+                document.getElementById('fatigue').value,
+                document.getElementById('photophobia').value,
+                document.getElementById('memoryIssues').value,
+                document.getElementById('blackout').value,
+                document.getElementById('pcodPcos').value,
+                document.getElementById('bmiOver25').value,
+                document.getElementById('genderFemale').value,
+                document.getElementById('genderMale').value
+            ];
+            
+            // Make API call to backend
+            fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ symptoms: formData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('predictedDisease').textContent = data.prediction;
+                } else {
+                    document.getElementById('predictedDisease').textContent = "Error: " + data.error;
+                }
+                document.getElementById('loadingIndicator').classList.add('hidden');
+                document.getElementById('resultContent').classList.remove('hidden');
+            })
+            .catch(error => {
+                document.getElementById('predictedDisease').textContent = "Error connecting to server";
+                document.getElementById('loadingIndicator').classList.add('hidden');
+                document.getElementById('resultContent').classList.remove('hidden');
+                console.error('Error:', error);
+            });
+        });
+        
+        // Reset form button
+        document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('symptomForm').reset();
+            document.getElementById('resultSection').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</body>
+</html>
